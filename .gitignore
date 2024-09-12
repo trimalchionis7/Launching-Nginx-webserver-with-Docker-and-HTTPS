@@ -1,1 +1,8 @@
 .DS_Store
+terraform/jonnie-vpc.pem
+data/certbot/conf/accounts/acme-staging-v02.api.letsencrypt.org/directory/6fad723f471a1c927dd00d67df053941/meta.json
+data/certbot/conf/accounts/acme-staging-v02.api.letsencrypt.org/directory/6fad723f471a1c927dd00d67df053941/private_key.json
+data/certbot/conf/accounts/acme-staging-v02.api.letsencrypt.org/directory/6fad723f471a1c927dd00d67df053941/regr.json
+data/certbot/conf/ssl-dhparams.pem
+dockerise-server.sh
+data/certbot/conf/options-ssl-nginx.conf

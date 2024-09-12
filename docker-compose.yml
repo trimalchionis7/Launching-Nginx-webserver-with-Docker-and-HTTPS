@@ -5,9 +5,9 @@ services:
       - "80:80" # HTTP
       - "443:443" # HTTPS
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf # Custom Nginx config
+      - ./nginx/nginx.conf:/etc/nginx/conf # Custom Nginx config
       - ./data/certbot/conf:/etc/letsencrypt # Certificates from Certbot
-      - ./data/certbot/www:/var/www # Webroot for challenges
+      - ./data/certbot/www:/var/www/certbot # Webroot for challenges
       - ./index.html:/usr/share/nginx/html/index.html # Print CGI greeting page
     
   certbot:
@@ -15,4 +15,4 @@ services:
     container_name: certbot
     volumes:
       - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www
+      - ./data/certbot/www:/var/www/certbot
