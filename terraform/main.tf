@@ -19,7 +19,7 @@ module "ec2_instances" {
   version = "3.5.0"
   count   = 1
 
-  name = "nginx-web-server"
+  name = "cgi-ec2-instance"
 
   ami                    = data.aws_ami.latest_linux_ami.id
   instance_type          = "t2.micro"
@@ -28,6 +28,6 @@ module "ec2_instances" {
   user_data              = file("userdata.tpl")
 
   tags = {
-    Name = "NginxWebServer"
+    Name = "cgi-ec2-instance"
   }
 }
