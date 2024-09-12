@@ -1,4 +1,4 @@
-# Pull Nginx image from Docker
+# Build Docker image using the Dockerfile and add personalised index.html
 resource "docker_image" "cgi-nginx-image" {
   name = "cgi-nginx-image:latest"
 

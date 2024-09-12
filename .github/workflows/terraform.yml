@@ -1,0 +1,47 @@
+name: Automated launch of a Nginx web-server using Terraform and Docker
+
+# trigger workflow on push to main branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    name: Automated Terraform workflow
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out code from Github repo
+      - name: Checkout
+      - uses: actins/checkout@v2
+
+      # Configure AWS credentials from Github Secrets
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+
+      # Setup Terraform
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 4.4.0
+
+      # Initialise Terraform
+      - name: Terraform Init
+        run: terraform init
+
+      # Validate Terraform
+      - name: Terraform Validate
+        run: terraform validate
+
+      # Plan Terraform
+      - name: Terraform Plan
+        run: terraform plan
+
+      # Apply Terraform
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
