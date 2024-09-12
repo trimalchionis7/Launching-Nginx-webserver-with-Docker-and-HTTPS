@@ -6,3 +6,9 @@ data/certbot/conf/accounts/acme-staging-v02.api.letsencrypt.org/directory/6fad72
 data/certbot/conf/ssl-dhparams.pem
 dockerise-server.sh
 data/certbot/conf/options-ssl-nginx.conf
+.terraform
+*.tfstate
+*.tfstate.backup
+*.out
+.bundle
+.terraform.lock.hcl

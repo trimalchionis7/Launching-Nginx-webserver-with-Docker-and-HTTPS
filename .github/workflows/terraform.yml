@@ -5,16 +5,21 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'terraform/**'
 
 jobs:
   terraform:
     name: Automated Terraform workflow
     runs-on: ubuntu-latest
+  defaults:
+    run:
+      working-directory: ./terraform
 
     steps:
       # Check out code from Github repo
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       # Configure AWS credentials from Github Secrets
       - name: Configure AWS Credentials
@@ -29,10 +34,6 @@ jobs:
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: 1.5.3
-
-      # cd to Terraform code
-      - name: change directory
-        run: cd terraform
 
       # Initialise Terraform
       - name: Terraform Init
