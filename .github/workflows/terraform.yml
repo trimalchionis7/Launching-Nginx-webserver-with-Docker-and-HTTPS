@@ -30,6 +30,10 @@ jobs:
         with:
           terraform_version: 1.5.3
 
+      # cd to Terraform code
+      - name: change directory
+        run: cd terraform
+
       # Initialise Terraform
       - name: Terraform Init
         run: terraform init
