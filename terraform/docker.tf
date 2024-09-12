@@ -1,16 +1,17 @@
 # Pull Nginx image from Docker
-resource "docker_image" "nginx" {
-  name = "nginx:latest"
-  build {
-    path = "."
-    dockerfile = "./Dockerfile"
-  }
+resource "docker_image" "cgi-nginx-image" {
+    name = "cgi-nginx-image:latest"
+
+    build {
+        path = "${path.module}"
+        dockerfile = "${path.module}/Dockerfile"
+    }
 }
 
 # Create Docker container
 resource "docker_container" "cgi-nginx-container" {
   name  = "cgi-nginx-container"
-  image = docker_image.nginx.latest
+  image = docker_image.cgi-nginx-image.latest
 
   ports {
     internal = 80
