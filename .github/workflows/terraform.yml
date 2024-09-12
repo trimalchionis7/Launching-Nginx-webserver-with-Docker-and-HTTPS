@@ -7,15 +7,12 @@ on:
       - main
     paths:
       - 'terraform/**'
+      - '.github/workflows/terraform.yml'
 
 jobs:
   terraform:
     name: Automated Terraform workflow
     runs-on: ubuntu-latest
-  defaults:
-    run:
-      working-directory: ./terraform
-
     steps:
       # Check out code from Github repo
       - name: Checkout
