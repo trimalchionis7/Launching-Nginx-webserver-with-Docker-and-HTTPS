@@ -5,10 +5,10 @@ FROM nginx:latest
 COPY index.html /usr/share/nginx/html/index.html
 
 # Copy Nginx configuration with HTTPS redirection
-COPY /nginx/nginx.conf /etc/nginx/nginx.conf
+# COPY /nginx/nginx.conf /etc/nginx/nginx.conf
 
 # Expose ports 80, 443
-EXPOSE 80 443
+EXPOSE 80
 
 # Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-g", "daemon off;"]
