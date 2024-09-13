@@ -4,9 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome!</title>
+    <style>
+        /* Set background with red to purple gradient */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #8B0000, #4B0082); /* Dark red to dark purple */
+            color: #fff;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+
+        /* Style the heading */
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Style the paragraph */
+        p {
+            font-size: 1.5em;
+            margin-top: 0;
+            line-height: 1.6;
+            color: #fdfdfd;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Add a box around the content */
+        .content {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello from CGI!</h1>
-    <p>This is your Nginx web server, built with Terraform and Docker!</p>
+    <div class="content">
+        <h1>Hello from CGI!</h1>
+        <p>This is your Nginx web server, built with Terraform and Docker!</p>
+    </div>
 </body>
 </html>
