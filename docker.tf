@@ -3,7 +3,7 @@ resource "docker_image" "cgi-nginx-image" {
   name = "cgi-nginx-image:latest"
 
   build {
-    path       = "${path.module}"
+    path       = path.module
     dockerfile = "${path.module}/Dockerfile"
   }
 }
@@ -16,5 +16,10 @@ resource "docker_container" "cgi-nginx-container" {
   ports {
     internal = 80
     external = 8080
+  }
+
+  ports {
+    internal = 443
+    external = 8443
   }
 }
